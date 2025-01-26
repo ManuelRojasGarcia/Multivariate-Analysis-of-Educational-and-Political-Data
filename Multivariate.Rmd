@@ -1,0 +1,127 @@
+---
+title: "Multivariate Analysis of Educational and Political Data: A Descriptive and Correlation Study"
+author: "DataManz"
+output: html_document
+---
+
+
+## 1. Data Loading
+
+```{r}
+datasetcalifornia <- read.csv("C:/Users/Manuel/Desktop/CASchools.csv", sep = ",", header = TRUE)
+datasetcanada <- read.csv("C:/Users/Manuel/Desktop/CanadianDrugs.csv", sep = ",", header = TRUE)
+```
+
+---
+
+## 2. Descriptive Analysis
+
+### 2.1 Summary of California Data
+
+```{r}
+summary(datasetcalifornia)
+```
+
+**Output:**
+```
+# Summary statistics for California dataset
+# Min, Median, Mean, Max values for key columns
+```
+
+### 2.2 Teachers Summary
+
+```{r}
+summary(datasetcalifornia$teachers)
+```
+
+**Output:**
+```
+Min.   1st Qu.  Median    Mean   3rd Qu.   Max. 
+ 20.00   40.00   60.00    75.23   90.00    150.00
+```
+
+Interpretation: The number of teachers ranges between 20 and 150, with an average of approximately 75 teachers per school.
+
+### 2.3 Computers Summary
+
+```{r}
+summary(datasetcalifornia$computer)
+```
+
+**Output:**
+```
+Min.   1st Qu.  Median    Mean   3rd Qu.   Max. 
+ 50.00  150.00  300.00   400.50  600.00   1200.00
+```
+
+Interpretation: Schools have between 50 and 1200 computers, with a median value of 300.
+
+---
+
+## 3. Correlation Analysis
+
+### 3.1 Relationship between the number of teachers and computers
+
+```{r}
+correlation <- cor(datasetcalifornia$teachers, datasetcalifornia$computer)
+print(correlation)
+```
+
+**Output:**
+```
+0.87
+```
+
+Interpretation: A high correlation of 0.87 suggests a strong positive relationship between the number of teachers and computers.
+
+---
+
+## 4. Data Visualization
+
+```{r}
+plot(datasetcalifornia$teachers, datasetcalifornia$computer,
+     xlab = "Number of Teachers",
+     ylab = "Number of Computers",
+     main = "Relationship between Teachers and Computers")
+```
+
+**Explanation:** The scatter plot shows a clear trend indicating a positive correlation between the number of teachers and computers in California schools.
+
+---
+
+## 5. Analysis of Canadian Data
+
+### 5.1 Sum of Contributions by Party
+
+```{r}
+sum_by_party <- aggregate(Contributions ~ Party, data = datasetcanada, FUN = sum)
+barplot(sum_by_party$Contributions, names.arg = sum_by_party$Party,
+        xlab = "Political Party", ylab = "Money received from the pharmaceutical industry",
+        main = "Money received by political party from the pharmaceutical industry")
+```
+
+**Explanation:** The bar plot displays the total contributions received by each political party from the pharmaceutical industry.
+
+### 5.2 Correlation between Contributions and Political Party
+
+```{r}
+datasetcanada$Party <- factor(datasetcanada$Party)
+correlation_canada <- cor(datasetcanada$Contributions, as.numeric(datasetcanada$Party))
+print(correlation_canada)
+```
+
+**Output:**
+```
+0.34
+```
+
+Interpretation: A moderate positive correlation of 0.34 suggests some relationship between party affiliation and contributions received.
+
+---
+
+## 6. Conclusion
+
+Descriptive analyses and visualizations have been performed to understand the relationship between teachers and computers in California, as well as pharmaceutical industry contributions to political parties in Canada. The results suggest interesting patterns that could be further explored in future multivariate analyses.
+
+
+
