@@ -1,7 +1,5 @@
 # 📊 Multivariate Analysis
 
-![Multivariate Analysis](https://upload.wikimedia.org/wikipedia/commons/8/89/Multivariate_Normal.png)
-
 ## 📄 Project Overview
 
 This project conducts a **multivariate analysis** of two datasets:
