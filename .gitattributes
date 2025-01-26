@@ -1,0 +1,11 @@
+# Set R as the primary language for the repository
+*.R linguist-language=R
+*.Rmd linguist-language=RMarkdown
+
+# Ignore CSV and image files from language detection
+*.csv linguist-vendored
+*.png linguist-vendored
+*.jpg linguist-vendored
+
+# Treat markdown files as documentation
+*.md linguist-documentation
