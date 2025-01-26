@@ -92,12 +92,6 @@ Feel free to contribute by submitting issues or pull requests to improve this pr
 
 ---
 
-## 📝 License
-
-This project is licensed under the MIT License.
-
----
-
 ## 📧 Contact
 
 **Author:** Manuel Rojas Garcia  
